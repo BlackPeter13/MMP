@@ -23,20 +23,3 @@ jobs:
       
     - name: Run tests
       run: npm test
-
-  deploy-prod:
-    needs: build-and-test
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-    steps:
-    - name: Deploy to server
-      uses: appleboy/ssh-action@v0.1.10
-      with:
-        host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USER }}
-        key: ${{ secrets.SSH_KEY }}
-        script: |
-          cd /var/www/mining-proxy
-          git pull origin main
-          npm ci --production
-          pm2 restart mining-proxy
