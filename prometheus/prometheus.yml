@@ -1,0 +1,15 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'node_app'
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['localhost:3000']
+  - job_name: 'redis'
+    static_configs:
+      - targets: ['localhost:6379']
+  - job_name: 'elasticsearch'
+    metrics_path: '/_prometheus/metrics'
+    static_configs:
+      - targets: ['localhost:9200']

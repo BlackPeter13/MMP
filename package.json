@@ -1,0 +1,25 @@
+{
+  "name": "merged-mining-proxy",
+  "version": "1.0.0",
+  "description": "Advanced Merged Mining Monitoring System",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "jest --coverage",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.7.1",
+    "axios": "^1.5.0",
+    "compression": "^1.7.4",
+    "redis": "^4.6.6",
+    "winston": "^3.10.0",
+    "winston-elasticsearch": "^0.15.3"
+  },
+  "devDependencies": {
+    "jest": "^29.6.2",
+    "eslint": "^8.48.0",
+    "supertest": "^6.3.3"
+  }
+}
